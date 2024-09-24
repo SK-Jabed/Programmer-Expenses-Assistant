@@ -30,9 +30,9 @@ calculateButton.addEventListener("click", function() {
 
     historyItem.innerHTML = `
         <p class="text-xs text-gray-500 font-bold">${new Date().toLocaleDateString()}</p>
-        <p class="text-xs text-gray-500 font-bold">Income: $${income.toFixed(2)}</p>
-        <p class="text-xs text-gray-500 font-bold">Expenses: $${totalExpenses.toFixed(2)}</p>
-        <p class="text-xs text-gray-500 font-bold">Balance: $${balance.toFixed(2)}</p>
+        <p class="text-xs text-gray-500 font-bold">Income: ${income.toFixed(2)}</p>
+        <p class="text-xs text-gray-500 font-bold">Expenses: ${totalExpenses.toFixed(2)}</p>
+        <p class="text-xs text-gray-500 font-bold">Balance: ${balance.toFixed(2)}</p>
     `;
 
     const historyList = document.getElementById("history-list");
@@ -73,7 +73,8 @@ historyTab.addEventListener("click", function() {
         "text-white",
         "bg-gradient-to-r", 
         "from-blue-500",
-        "to-purple-600");
+        "to-purple-600"
+    );
     assistantTab.classList.add("text-gray-600");
 
     historyTab.classList.remove("text-gray-600");
@@ -81,9 +82,29 @@ historyTab.addEventListener("click", function() {
         "text-white",
         "bg-gradient-to-r", 
         "from-blue-500",
-        "to-purple-600");
+        "to-purple-600"
+    );
     
     document.getElementById("expense-form").classList.add("hidden");
     document.getElementById("history-section").classList.remove("hidden");
 });
 
+
+// Assistant Tab Functionality
+assistantTab.addEventListener("click", function() {
+    assistantTab.classList.add(
+        "text-white",
+        "bg-gradient-to-r", 
+        "from-blue-500",
+        "to-purple-600"
+    );
+    historyTab.classList.remove(
+        "text-white",
+        "bg-gradient-to-r", 
+        "from-blue-500",
+        "to-purple-600"
+    );
+
+    document.getElementById("expense-form").classList.remove("hidden");
+    document.getElementById("history-section").classList.add("hidden");
+});
